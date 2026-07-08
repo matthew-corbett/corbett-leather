@@ -66,6 +66,7 @@
         <div class="cl-nav-links">
           <a href="#collections">Collections</a>
           <a href="#craft">Our Craft</a>
+          <a href="#stamps">Stamps</a>
           <a href="#story">Our Story</a>
           <a href="#values">Why Us</a>
           <a href="#inquire">Inquire</a>
@@ -76,6 +77,7 @@
       <div class="cl-mobile-menu" id="mobileMenu">
         <a href="#collections">Collections</a>
         <a href="#craft">Our Craft</a>
+        <a href="#stamps">Stamps</a>
         <a href="#story">Our Story</a>
         <a href="#values">Why Us</a>
         <a href="#inquire">Inquire</a>
@@ -151,9 +153,9 @@
             <p class="section-eyebrow">Our Collections</p>
             <h2 class="section-title">Built to Last a Lifetime</h2>
             <p class="section-subtitle">
-              Belts, wallets, and bags crafted from premium full-grain leather and finished with
-              solid hardware. Every order is made to your specifications — send an inquiry to
-              discuss options and pricing.
+              Belts, wallets, and bags crafted from premium full-grain leather — plus custom
+              leather stamps from your text or artwork. Every order is made to your
+              specifications — send an inquiry to discuss options and pricing.
             </p>
           </div>
           <div class="collection-grid collection-grid--three">
@@ -211,6 +213,24 @@
                 <span class="collection-cta">Request Quote →</span>
               </div>
             </a>
+            <a class="collection-card" href="#inquire" data-inquiry-category="Leather Stamps">
+              <span class="collection-art art-stamps">
+                <img
+                  src="assets/corbett-leather-bg-detail.png"
+                  alt=""
+                  aria-hidden="true"
+                  width="900"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <div class="collection-body">
+                <h3>Leather Stamps</h3>
+                <p>Custom PLA 3D printed imprints from text or images.</p>
+                <span class="collection-cta">Request Stamp Quote →</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -254,7 +274,7 @@
           <div class="process-step">
             <span class="process-num">1</span>
             <h3>Inquire</h3>
-            <p>Tell us what you want — leather, size, hardware, and style.</p>
+            <p>Tell us what you want — leather goods (belts, wallets, bags) or custom stamp imprints.</p>
           </div>
           <div class="process-arrow" aria-hidden="true">→</div>
           <div class="process-step">
@@ -273,6 +293,79 @@
             <span class="process-num">4</span>
             <h3>Ship</h3>
             <p>Finished goods shipped to your door, ready for a lifetime of use.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <section class="section section-alt" id="stamps">
+        <div class="container">
+          <div class="feature">
+            <div class="feature-art feature-art--photo stamp-feature-art">
+              <img
+                src="assets/corbett-leather-bg-detail.png"
+                alt=""
+                aria-hidden="true"
+                width="1100"
+                height="620"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="stamp-illustration" aria-hidden="true">
+                <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M30 55c0-18 14-32 32-32h96c18 0 32 14 32 32v30c0 18-14 32-32 32H62c-18 0-32-14-32-32V55Z"
+                    fill="rgba(26,15,8,0.28)"
+                    stroke="rgba(192,138,62,0.75)"
+                    stroke-width="3"
+                  />
+                  <path
+                    d="M62 62c0-14 11-25 25-25h76c14 0 25 11 25 25v16c0 14-11 25-25 25H87c-14 0-25-11-25-25V62Z"
+                    fill="rgba(26,15,8,0.42)"
+                    stroke="rgba(192,138,62,0.9)"
+                    stroke-width="3"
+                  />
+                  <path
+                    d="M82 75c0-12 10-22 22-22s22 10 22 22-10 22-22 22-22-10-22-22Z"
+                    fill="rgba(192,138,62,0.18)"
+                    stroke="rgba(192,138,62,0.95)"
+                    stroke-width="3"
+                  />
+                  <path
+                    d="M118 82h40"
+                    stroke="rgba(192,138,62,0.95)"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M82 88h28"
+                    stroke="rgba(192,138,62,0.95)"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="feature-text">
+              <p class="section-eyebrow">Custom PLA 3D Stamps</p>
+              <h2>Custom Imprints, Built from Your Design</h2>
+              <p class="prose-serif">
+                We create custom PLA leather stamps from your text or images—then help you tune imprint
+                depth and size so it looks right on your leather.
+              </p>
+              <ul class="feature-list">
+                <li>Raised stamp design for crisp imprints</li>
+                <li>Mirror option for correct leather orientation</li>
+                <li>Send text, logos, or reference images by email</li>
+                <li>Built to replace easily as designs evolve</li>
+              </ul>
+              <a
+                href="#inquire"
+                class="btn btn-primary"
+                data-inquiry-category="Leather Stamps"
+              >Request a Stamp Quote</a>
+            </div>
           </div>
         </div>
       </section>
@@ -432,6 +525,7 @@
                   <option value="Belts">Belts</option>
                   <option value="Wallets">Wallets</option>
                   <option value="Bags">Bags</option>
+                  <option value="Leather Stamps">Leather Stamps</option>
                   <option value="Other / Not sure">Other / Not sure</option>
                 </select>
               </div>
@@ -443,6 +537,15 @@
                   rows="4"
                   required
                   placeholder="Leather color, size, hardware, buckle style, personalization, etc."
+                ></textarea>
+              </div>
+              <div class="form-row stamp-fields" id="stampFields" hidden>
+                <label for="stampDetails">Stamp text / design details (optional)</label>
+                <textarea
+                  id="stampDetails"
+                  name="stampDetails"
+                  rows="3"
+                  placeholder="Examples: your logo text, initials, or a short description of your design. If you have an image, include it via email after you submit."
                 ></textarea>
               </div>
               <div class="form-row">
@@ -503,6 +606,7 @@
           <a href="#inquire" data-inquiry-category="Belts">Belts</a>
           <a href="#inquire" data-inquiry-category="Wallets">Wallets</a>
           <a href="#inquire" data-inquiry-category="Bags">Bags</a>
+          <a href="#inquire" data-inquiry-category="Leather Stamps">Leather Stamps</a>
         </div>
         <div class="cl-footer-col">
           <h3>Company</h3>
@@ -549,11 +653,35 @@
           });
         }
 
+        var inquiryCategoryEl = document.getElementById("inquiryCategory");
+        var inquiryOptionsEl = document.getElementById("inquiryOptions");
+        var stampFieldsEl = document.getElementById("stampFields");
+        var stampDetailsEl = document.getElementById("stampDetails");
+        var defaultInquiryOptionsPlaceholder = inquiryOptionsEl
+          ? inquiryOptionsEl.getAttribute("placeholder") || ""
+          : "";
+
+        function updateStampUI() {
+          if (!inquiryCategoryEl) return;
+          var isStamp = inquiryCategoryEl.value === "Leather Stamps";
+          if (stampFieldsEl) stampFieldsEl.hidden = !isStamp;
+          if (inquiryOptionsEl) {
+            inquiryOptionsEl.placeholder = isStamp
+              ? "PLA stamp text/design + imprint size (e.g., 1\" round) + any mirror preference. If you have an image, email it after you submit."
+              : defaultInquiryOptionsPlaceholder;
+          }
+        }
+
+        if (inquiryCategoryEl) {
+          inquiryCategoryEl.addEventListener("change", updateStampUI);
+        }
+
         function setInquiryCategory(category) {
           if (!category) return;
           sessionStorage.setItem(CATEGORY_KEY, category);
           var select = document.getElementById("inquiryCategory");
           if (select) select.value = category;
+          updateStampUI();
         }
 
         document.querySelectorAll("[data-inquiry-category]").forEach(function (el) {
@@ -567,6 +695,7 @@
           setInquiryCategory(savedCategory);
           sessionStorage.removeItem(CATEGORY_KEY);
         }
+        updateStampUI();
 
         var form = document.getElementById("inquiryForm");
         var formNote = document.getElementById("formNote");
@@ -584,6 +713,7 @@
             var category = document.getElementById("inquiryCategory").value;
             var options = document.getElementById("inquiryOptions").value.trim();
             var notes = document.getElementById("inquiryNotes").value.trim();
+            var stampDetails = stampDetailsEl ? stampDetailsEl.value.trim() : "";
 
             var subject = "Corbett Leather Order Inquiry - " + category;
             var body = [
@@ -601,6 +731,13 @@
               "Additional notes:",
               notes || "None"
             ].join("\n");
+
+            if (stampDetails) {
+              body =
+                body +
+                "\n\nStamp details:\n" +
+                stampDetails;
+            }
 
             window.location.href =
               "mailto:" +
