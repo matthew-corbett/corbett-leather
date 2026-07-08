@@ -603,8 +603,13 @@ a {
 }
 
 .art-wallets,
-.art-bags {
-  background: var(--leather-900);
+.art-bags,
+.art-stamps {
+  background: #1f2428;
+}
+
+.art-stamps img {
+  object-position: center 35%;
 }
 
 .collection-art img {
@@ -1161,23 +1166,10 @@ a {
 }
 
 /* ── PLA stamps section ── */
-.stamp-feature-art {
-  position: relative;
-}
-
-.stamp-illustration {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.stamp-illustration svg {
-  width: min(380px, 70%);
-  height: auto;
-  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.35));
+.stamp-feature-art img {
+  object-fit: cover;
+  object-position: center 35%;
+  background: #1f2428;
 }
 
 .stamp-fields {
