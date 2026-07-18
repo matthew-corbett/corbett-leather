@@ -736,7 +736,71 @@ a {
 /* ── Wallet workshop feature ── */
 .wallet-workshop-art img {
   object-fit: cover;
-  object-position: center center;
+  object-position: center 30%;
+}
+
+.art-wallets img {
+  object-position: center 35%;
+}
+
+.wallet-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.wallet-gallery-item {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--leather-900);
+  box-shadow: var(--shadow-sm);
+}
+
+.wallet-gallery-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.wallet-gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+.wallet-gallery-item figcaption {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass-text);
+  padding: 0.75rem 0.9rem 0.95rem;
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .wallet-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .wallet-gallery {
+    grid-template-columns: 1fr;
+  }
+  .wallet-gallery-item img {
+    height: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wallet-gallery-item img {
+    transition: none;
+  }
 }
 
 /* ── Process strip ── */
