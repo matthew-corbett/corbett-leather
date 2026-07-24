@@ -739,6 +739,24 @@ a {
   object-position: center 30%;
 }
 
+.feature--reverse {
+  margin-top: 4rem;
+}
+
+@media (min-width: 801px) {
+  .feature--reverse {
+    direction: rtl;
+  }
+  .feature--reverse > * {
+    direction: ltr;
+  }
+}
+
+.wallet-sentinel {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(192, 138, 62, 0.25);
+}
+
 .art-wallets img {
   object-position: center 35%;
 }
