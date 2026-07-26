@@ -752,20 +752,32 @@ a {
   }
 }
 
-.wallet-sentinel {
-  padding-top: 1rem;
+.wallet-sentinel,
+.wallet-blueline {
+  margin-top: 4rem;
+  padding-top: 2rem;
   border-top: 1px solid rgba(192, 138, 62, 0.25);
 }
 
-.art-wallets img {
+.belt-feature-art img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.art-wallets img,
+.art-belts img {
   object-position: center 35%;
 }
 
 .wallet-gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 3rem;
+}
+
+.belt-gallery {
+  margin-top: 2.5rem;
 }
 
 .wallet-gallery-item {
