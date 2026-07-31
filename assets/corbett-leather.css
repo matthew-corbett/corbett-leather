@@ -608,6 +608,10 @@ a {
   background: var(--leather-900);
 }
 
+.art-bags img {
+  object-position: center 40%;
+}
+
 .art-stamps img {
   object-position: center 45%;
 }
@@ -1027,7 +1031,7 @@ a {
   inset: 0;
   background:
     linear-gradient(rgba(26, 15, 8, 0.82), rgba(26, 15, 8, 0.9)),
-    url("corbett-leather-duffel-bag-feature-styled.jpg") center / cover no-repeat;
+    url("corbett-leather-wallet-workshop-tools.jpg") center 35% / cover no-repeat;
   z-index: 0;
 }
 
