@@ -8,8 +8,11 @@
   :root { font-family: "Source Sans 3", system-ui, sans-serif; color:#2a1c10; background:#faf5ec; }
   body { margin:0; padding:2rem 1.25rem 4rem; }
   h1 { font-family: Oswald, system-ui, sans-serif; letter-spacing:.06em; text-transform:uppercase; font-size:clamp(1.6rem,4vw,2.4rem); margin:0 0 .5rem; }
-  .lead { color:#6b5644; max-width:60ch; margin:0 0 2rem; }
+  h2.section { font-family: Oswald, system-ui, sans-serif; letter-spacing:.05em; text-transform:uppercase; margin:2.5rem 0 1rem; color:#5a3620; }
+  .lead { color:#6b5644; max-width:60ch; margin:0 0 1.25rem; }
   .card { background:#fff; border:1px solid #e8d9c4; border-radius:8px; padding:1.25rem; margin-bottom:1.5rem; box-shadow:0 1px 3px rgba(26,15,8,.08); }
+  .card.preferred { border-color:#c08a3e; box-shadow:0 0 0 2px rgba(192,138,62,.25); }
+  .pref { display:inline-block; margin-left:.5rem; font-size:.7rem; vertical-align:middle; background:#c08a3e; color:#1a0f08; padding:.15rem .45rem; border-radius:4px; letter-spacing:.04em; }
   .card h2 { font-family:Oswald,system-ui,sans-serif; margin:0 0 .25rem; letter-spacing:.04em; }
   .card p { margin:0 0 1rem; color:#6b5644; }
   .row { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.75rem; }
@@ -21,11 +24,11 @@
 </head>
 <body>
   <h1>Corbett &amp; Co. Logo Options</h1>
-  <p class="lead">Circular and oval marks abstracted from your current emblem, banner logo, and C&amp;C stamp. Each option includes stamp positive/negative, brass &amp; cream sticker colorways, and a mirrored file for PLA stamp molds.</p>
-  
-    <article class="card">
-      <h2>Option A</h2>
-      <p>Circular Seal — full name arcs + C&C center</p>
+  <p class="lead">Option <strong>A</strong> is the preferred circular seal. Head-knife options (F–I) put that same mark language into a classic leathercraft tool silhouette for stamps and stickers.</p>
+  <h2 class="section">Circular / Oval</h2>
+    <article class="card preferred">
+      <h2>Option A <span class="pref">Preferred</span></h2>
+      <p>Circular Seal — full name arcs + C&C center (PREFERRED)</p>
       <div class="row">
         <figure><img src="option-a-stamp-positive.png" alt=""><figcaption>Stamp +</figcaption></figure>
         <figure><img src="option-a-stamp-negative.png" alt=""><figcaption>Stamp −</figcaption></figure>
@@ -77,9 +80,53 @@
         <figure><img src="option-e-sticker-cream.png" alt=""><figcaption>Cream sticker</figcaption></figure>
         <figure><img src="option-e-stamp-mirror.png" alt=""><figcaption>PLA mirror</figcaption></figure>
       </div>
+    </article><h2 class="section">Head Knife Shape</h2><p class="lead">Tool-shaped marks for stamps and stickers — Option A seal language inside a classic leather head knife silhouette.</p>
+    <article class="card">
+      <h2>Option F</h2>
+      <p>Head Knife Seal — full name arcs + C&C in blade</p>
+      <div class="row">
+        <figure><img src="option-f-stamp-positive.png" alt=""><figcaption>Stamp +</figcaption></figure>
+        <figure><img src="option-f-stamp-negative.png" alt=""><figcaption>Stamp −</figcaption></figure>
+        <figure><img src="option-f-sticker-brass.png" alt=""><figcaption>Brass sticker</figcaption></figure>
+        <figure><img src="option-f-sticker-cream.png" alt=""><figcaption>Cream sticker</figcaption></figure>
+        <figure><img src="option-f-stamp-mirror.png" alt=""><figcaption>PLA mirror</figcaption></figure>
+      </div>
+    </article>
+    <article class="card">
+      <h2>Option G</h2>
+      <p>Head Knife Monogram — C & C only in blade</p>
+      <div class="row">
+        <figure><img src="option-g-stamp-positive.png" alt=""><figcaption>Stamp +</figcaption></figure>
+        <figure><img src="option-g-stamp-negative.png" alt=""><figcaption>Stamp −</figcaption></figure>
+        <figure><img src="option-g-sticker-brass.png" alt=""><figcaption>Brass sticker</figcaption></figure>
+        <figure><img src="option-g-sticker-cream.png" alt=""><figcaption>Cream sticker</figcaption></figure>
+        <figure><img src="option-g-stamp-mirror.png" alt=""><figcaption>PLA mirror</figcaption></figure>
+      </div>
+    </article>
+    <article class="card">
+      <h2>Option H</h2>
+      <p>Head Knife Wordmark — CORBETT / & CO. in blade</p>
+      <div class="row">
+        <figure><img src="option-h-stamp-positive.png" alt=""><figcaption>Stamp +</figcaption></figure>
+        <figure><img src="option-h-stamp-negative.png" alt=""><figcaption>Stamp −</figcaption></figure>
+        <figure><img src="option-h-sticker-brass.png" alt=""><figcaption>Brass sticker</figcaption></figure>
+        <figure><img src="option-h-sticker-cream.png" alt=""><figcaption>Cream sticker</figcaption></figure>
+        <figure><img src="option-h-stamp-mirror.png" alt=""><figcaption>PLA mirror</figcaption></figure>
+      </div>
+    </article>
+    <article class="card">
+      <h2>Option I</h2>
+      <p>Classic Head Knife — short-handle seal (Option A inside)</p>
+      <div class="row">
+        <figure><img src="option-i-stamp-positive.png" alt=""><figcaption>Stamp +</figcaption></figure>
+        <figure><img src="option-i-stamp-negative.png" alt=""><figcaption>Stamp −</figcaption></figure>
+        <figure><img src="option-i-sticker-brass.png" alt=""><figcaption>Brass sticker</figcaption></figure>
+        <figure><img src="option-i-sticker-cream.png" alt=""><figcaption>Cream sticker</figcaption></figure>
+        <figure><img src="option-i-stamp-mirror.png" alt=""><figcaption>PLA mirror</figcaption></figure>
+      </div>
     </article>
   <div class="note">
-    <strong>How to use:</strong> Pick a letter (A–E). Use <em>stamp-positive</em> for print/laser masters; <em>stamp-mirror</em> when modeling a raised PLA stamp; brass/cream for sticker sheets. Prefer bold options C or D for small leather stamps; A, B, or E when you need the full name readable.
+    <strong>How to use:</strong> Prefer <em>A</em> for the main seal. Use <em>F</em> or <em>I</em> when you want the head-knife shape with full name; <em>G</em> for small stamps; <em>H</em> for a wordmark-in-blade look. <em>stamp-mirror</em> files are for raised PLA molds.
   </div>
 </body>
 </html>
