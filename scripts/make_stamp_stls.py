@@ -1,120 +1,41 @@
 #!/usr/bin/env python3
-"""Build printable PLA leather-stamp STLs from Corbett mark bitmaps.
+"""Build smooth PLA leather-stamp STLs via matthew-corbett/STLBuilder.
 
-Raised-relief stamps, mirrored so the leather imprint reads correctly.
-Units: millimeters. Outputs only the mirrored print-ready files.
+Uses STLBuilder's image→contour→CadQuery pipeline (not voxel extrusion).
+Source marks are crisped / upscaled first so curves stay clean.
 """
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
-import numpy as np
 from PIL import Image, ImageFilter, ImageOps
-from stl import mesh
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "stamps" / "stl"
+PREP = ROOT / "assets" / "stamps" / "prep"
 LOGOS = ROOT / "assets" / "logos"
 
+STLBUILDER_CANDIDATES = [
+    ROOT.parent / "STLBuilder",
+    Path("/tmp/STLBuilder"),
+    Path.home() / "STLBuilder",
+]
+
 SIZES_IN = (0.75, 1.0, 1.25, 1.5, 2.0)
-BASE_THICKNESS_MM = 2.4
-RELIEF_HEIGHT_MM = 1.8
-EDGE_PAD_MM = 1.2
-# Cap grid resolution so STLs stay downloadable / slice-friendly
-MAX_GRID = 140
+PREP_PX = 1800
 
 
-def load_mask(path: Path) -> Image.Image:
-    im = Image.open(path).convert("RGBA")
-    bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
-    g = ImageOps.autocontrast(Image.alpha_composite(bg, im).convert("L"))
-    bw = g.point(lambda x: 255 if x < 190 else 0)
-    bw = bw.filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.MinFilter(3))
-    bbox = bw.getbbox()
-    if bbox:
-        bw = ImageOps.expand(bw.crop(bbox), border=6, fill=0)
-    return bw
-
-
-def prepare(mask: Image.Image, target_mm: float) -> tuple[np.ndarray, float]:
-    """Return (raised bool HxW, mm_per_px) for mirrored stamp."""
-    work = ImageOps.mirror(mask)
-    w, h = work.size
-    longest = max(w, h)
-    content_mm = max(4.0, target_mm - 2 * EDGE_PAD_MM)
-    px = min(MAX_GRID, max(48, int(round(content_mm / 0.28))))
-    scale = px / longest
-    nw, nh = max(8, int(round(w * scale))), max(8, int(round(h * scale)))
-    resized = work.resize((nw, nh), Image.Resampling.NEAREST)
-    pad_px = max(2, int(round(EDGE_PAD_MM / (content_mm / px))))
-    padded = ImageOps.expand(resized, border=pad_px, fill=0)
-    arr = np.array(padded, dtype=np.uint8) > 127
-    mm_per_px = content_mm / px
-    return arr, mm_per_px
-
-
-def add_box(triangles: list[np.ndarray], x0, x1, y0, y1, z0, z1) -> None:
-    """Append 12 triangles for an axis-aligned box."""
-    v = np.array(
-        [
-            [x0, y0, z0],
-            [x1, y0, z0],
-            [x1, y1, z0],
-            [x0, y1, z0],
-            [x0, y0, z1],
-            [x1, y0, z1],
-            [x1, y1, z1],
-            [x0, y1, z1],
-        ],
-        dtype=np.float64,
+def _add_stlbuilder() -> Path:
+    for candidate in STLBUILDER_CANDIDATES:
+        if (candidate / "stlbuilder" / "image_stamp.py").is_file():
+            sys.path.insert(0, str(candidate))
+            return candidate
+    raise SystemExit(
+        "STLBuilder not found. Clone https://github.com/matthew-corbett/STLBuilder "
+        "next to this repo (or into /tmp/STLBuilder)."
     )
-    faces = [
-        (0, 2, 1), (0, 3, 2),  # bottom -z
-        (4, 5, 6), (4, 6, 7),  # top +z
-        (0, 1, 5), (0, 5, 4),  # -y
-        (2, 3, 7), (2, 7, 6),  # +y
-        (0, 4, 7), (0, 7, 3),  # -x
-        (1, 2, 6), (1, 6, 5),  # +x
-    ]
-    for a, b, c in faces:
-        triangles.append(np.array([v[a], v[b], v[c]]))
-
-
-def build_stamp_mesh(raised: np.ndarray, mm_per_px: float) -> mesh.Mesh:
-    h, w = raised.shape
-    width = w * mm_per_px
-    height = h * mm_per_px
-    ox, oy = -width / 2, -height / 2
-
-    tris: list[np.ndarray] = []
-    # Base plate
-    add_box(tris, ox, ox + width, oy, oy + height, 0.0, BASE_THICKNESS_MM)
-
-    # Merge raised runs into larger boxes (row-wise RLE) for fewer triangles
-    z0 = BASE_THICKNESS_MM
-    z1 = BASE_THICKNESS_MM + RELIEF_HEIGHT_MM
-    for i in range(h):
-        j = 0
-        y0 = oy + i * mm_per_px
-        y1 = y0 + mm_per_px
-        while j < w:
-            if not raised[i, j]:
-                j += 1
-                continue
-            j2 = j + 1
-            while j2 < w and raised[i, j2]:
-                j2 += 1
-            x0 = ox + j * mm_per_px
-            x1 = ox + j2 * mm_per_px
-            add_box(tris, x0, x1, y0, y1, z0, z1)
-            j = j2
-
-    data = np.zeros(len(tris), dtype=mesh.Mesh.dtype)
-    m = mesh.Mesh(data, remove_empty_areas=False)
-    for idx, tri in enumerate(tris):
-        m.vectors[idx] = tri
-    return m
 
 
 def inch_label(inches: float) -> str:
@@ -123,55 +44,157 @@ def inch_label(inches: float) -> str:
     return f"{str(inches).replace('.', 'p')}in"
 
 
+def prepare_mark(src: Path, out: Path, size: int = PREP_PX) -> Path:
+    """Write a crisp black-on-white PNG for STLBuilder contouring."""
+    im = Image.open(src).convert("RGBA")
+    bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
+    g = ImageOps.autocontrast(Image.alpha_composite(bg, im).convert("L"))
+    # Upscale with LANCZOS then hard-threshold → smoother contour input
+    g = g.resize((size, int(size * im.height / im.width)), Image.Resampling.LANCZOS)
+    bw = g.point(lambda x: 0 if x < 170 else 255).convert("L")
+    bw = bw.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MaxFilter(3))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    bw.save(out, optimize=True)
+    return out
+
+
 def main() -> None:
-    # Clean previous bulky exports
-    OUT.mkdir(parents=True, exist_ok=True)
-    for old in OUT.glob("*.stl"):
-        old.unlink()
+    stlbuilder_root = _add_stlbuilder()
+    # Denser curve sampling if SVG path is used later
+    import stlbuilder.svg_stamp as svg_stamp
+
+    svg_stamp._CURVE_SAMPLES = 48
+
+    import cv2
+    import stlbuilder.image_stamp as image_stamp
+    import cadquery as cq
+    from stlbuilder.image_stamp import ImageStampSettings, build_image_stamp
+    from stlbuilder.stamp_generator import StampGenerationError
+    from shapely.geometry import Polygon
+
+    def export_stl_smooth(model, path: Path) -> Path:
+        """Export with tight tessellation so small letter curves stay round."""
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        cq.exporters.export(
+            model,
+            str(path),
+            tolerance=0.01,  # mm — default 0.1 is too coarse for stamp lettering
+            angularTolerance=0.02,  # rad — default 0.1 facets circles
+        )
+        return path
+
+    # Denser source contours than STLBuilder's default CHAIN_APPROX_SIMPLE
+    def _dense_contours_to_polygons(mask, simplify: float):
+        contours, hierarchy = cv2.findContours(
+            mask, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE
+        )
+        if hierarchy is None or len(contours) == 0:
+            return []
+        hierarchy = hierarchy[0]
+        outers, holes_by_parent = {}, {}
+        for idx, cnt in enumerate(contours):
+            if len(cnt) < 3:
+                continue
+            parent = hierarchy[idx][3]
+            approx = image_stamp._simplify_contour(cnt, simplify)
+            if len(approx) < 3:
+                continue
+            ring = approx.reshape(-1, 2)
+            if parent == -1:
+                outers[idx] = ring
+            else:
+                holes_by_parent.setdefault(parent, []).append(ring)
+        polygons = []
+        img_h = mask.shape[0]
+        for idx, outer in outers.items():
+            holes = holes_by_parent.get(idx, [])
+            outer_xy = [(float(x), float(img_h - y)) for x, y in outer]
+            hole_xy = [[(float(x), float(img_h - y)) for x, y in hole] for hole in holes]
+            try:
+                poly = Polygon(outer_xy, hole_xy)
+            except ValueError:
+                continue
+            if poly.is_empty or poly.area < 4:
+                continue
+            if not poly.is_valid:
+                poly = poly.buffer(0)
+                if poly.is_empty or poly.geom_type != "Polygon":
+                    continue
+            polygons.append(poly)
+        return polygons
+
+    image_stamp._contours_to_polygons = _dense_contours_to_polygons
+
+    print(f"Using STLBuilder at {stlbuilder_root}")
 
     jobs = [
         ("seal", LOGOS / "corbett-mark-seal.png"),
         ("headknife", LOGOS / "corbett-mark-headknife.png"),
     ]
-    if not jobs[0][1].exists():
-        jobs[0] = ("seal", LOGOS / "option-a-stamp-positive.png")
-    if not jobs[1][1].exists():
-        jobs[1] = ("headknife", LOGOS / "option-o-stamp-positive.png")
+    for i, (key, path) in enumerate(jobs):
+        if not path.exists():
+            alt = LOGOS / f"option-{'a' if key == 'seal' else 'o'}-stamp-positive.png"
+            if not alt.exists():
+                raise SystemExit(f"Missing mark image: {path}")
+            jobs[i] = (key, alt)
+
+    OUT.mkdir(parents=True, exist_ok=True)
+    for old in OUT.glob("*.stl"):
+        old.unlink()
 
     for key, src in jobs:
-        if not src.exists():
-            raise SystemExit(f"Missing source: {src}")
-        mask = load_mask(src)
+        src = Path(src)
+        prep = prepare_mark(src, PREP / f"corbett-{key}-crisp.png")
+        print(f"\n=== {key}: prepared {prep.name} ===")
+
         for inches in SIZES_IN:
-            target_mm = inches * 25.4
+            width_mm = inches * 25.4
             label = inch_label(inches)
-            raised, mm_per_px = prepare(mask, target_mm)
-            m = build_stamp_mesh(raised, mm_per_px)
             out = OUT / f"corbett-{key}-{label}-raised-mirror.stl"
-            m.save(str(out))
+            settings = ImageStampSettings(
+                image_path=str(prep),
+                width_mm=width_mm,
+                imprint_depth=2.0,
+                base_thickness=3.0,
+                margin=2.0,
+                mirror_for_leather=True,
+                threshold=128,
+                invert=False,
+                # Very low simplify % keeps letter/circle curves round
+                simplify=0.05,
+                max_pixels=1800,
+                raised_border=False,
+            )
+            try:
+                model = build_image_stamp(settings)
+                export_stl_smooth(model, out)
+            except StampGenerationError as exc:
+                raise SystemExit(f"Failed {out.name}: {exc}") from exc
             print(
-                f"Wrote {out.name:48} "
-                f"{raised.shape[1]*mm_per_px:5.1f}×{raised.shape[0]*mm_per_px:5.1f} mm  "
-                f"tris={len(m.vectors)}  {out.stat().st_size/1024:.0f}KB"
+                f"Wrote {out.name:48} {width_mm:5.1f} mm  "
+                f"{out.stat().st_size/1024:6.0f} KB"
             )
 
-    readme = ROOT / "assets" / "stamps" / "README.md"
-    readme.write_text(
+    (ROOT / "assets" / "stamps" / "README.md").write_text(
         "\n".join(
             [
                 "# Corbett & Co. — PLA leather stamp STLs",
                 "",
-                "Raised-relief stamps from **Seal A** and **Head Knife O**.",
-                "All files are **mirrored** so the imprint on leather reads correctly.",
+                "Generated with **[STLBuilder](https://github.com/matthew-corbett/STLBuilder)** "
+                "(contour → CadQuery extrusion), after crisping the brand PNGs.",
+                "Not voxel/pixel extrusion — curves are polygonal contours from OpenCV.",
                 "",
-                "## Print these",
+                "All files are **mirrored** so leather imprints read correctly.",
                 "",
-                "| File pattern | Mark |",
-                "|--------------|------|",
-                "| `corbett-seal-*-raised-mirror.stl` | Circular seal |",
-                "| `corbett-headknife-*-raised-mirror.stl` | Head knife |",
+                "## Files",
                 "",
-                "## Sizes (longest axis)",
+                "| Pattern | Mark |",
+                "|---------|------|",
+                "| `stl/corbett-seal-*-raised-mirror.stl` | Circular seal |",
+                "| `stl/corbett-headknife-*-raised-mirror.stl` | Head knife |",
+                "",
+                "## Sizes (width)",
                 "",
                 "| Label | Size |",
                 "|-------|------|",
@@ -181,15 +204,15 @@ def main() -> None:
                 "| `1p5in` | 1.50\" (~38 mm) |",
                 "| `2in` | 2.00\" (~51 mm) |",
                 "",
-                "## Suggested print settings",
+                "## Print",
                 "",
-                "- PLA · layer height 0.12–0.16 mm · 3+ walls · 20–40% infill",
-                "- Print **flat, relief up** · no supports",
-                f"- Base **{BASE_THICKNESS_MM} mm** · relief **{RELIEF_HEIGHT_MM} mm**",
+                "- PLA · 0.12–0.16 mm layers · relief up · no supports",
+                "- Base 3 mm · imprint depth 2 mm · margin 2 mm",
                 "",
-                "Regenerate:",
+                "## Regenerate",
                 "",
                 "```bash",
+                "pip install -r /path/to/STLBuilder/requirements.txt",
                 "python3 scripts/make_stamp_stls.py",
                 "```",
                 "",
