@@ -81,6 +81,16 @@ a {
   font-weight: 600;
 }
 
+.announce-bar a {
+  color: var(--brass);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(192, 138, 62, 0.45);
+}
+
+.announce-bar a:hover {
+  color: var(--tan-100);
+}
+
 /* ── Header ── */
 .cl-header {
   position: sticky;
@@ -121,16 +131,16 @@ a {
 }
 
 .cl-brand-emblem {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
   flex-shrink: 0;
   transition: width 0.25s ease, height 0.25s ease;
 }
 
 .cl-header.is-scrolled .cl-brand-emblem {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
 }
 
 .cl-brand-text {
@@ -288,6 +298,48 @@ a {
   margin: 0 auto;
 }
 
+.cl-hero-seal {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 1.1rem;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
+  animation: brand-rise 0.9s ease both;
+}
+
+.cl-hero-brand {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  font-weight: 700;
+  line-height: 0.98;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 0;
+  animation: brand-rise 1s 0.06s ease both;
+}
+
+.cl-hero-brand-sub {
+  margin: 0.35rem 0 1.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brass);
+  animation: brand-rise 1s 0.12s ease both;
+}
+
+.cl-hero-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.6vw, 1.65rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--text-on-dark);
+  margin: 0 0 0.85rem;
+  animation: brand-rise 1s 0.18s ease both;
+}
+
 .cl-hero-kicker {
   display: inline-block;
   font-size: 0.78rem;
@@ -301,26 +353,16 @@ a {
   margin-bottom: 1.5rem;
 }
 
-.cl-hero h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 6vw, 3.8rem);
-  font-weight: 700;
-  line-height: 1.05;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  color: #fff;
-  margin: 0 0 1.25rem;
-}
-
 .cl-hero h1 span {
   color: var(--brass);
 }
 
-.cl-hero p {
-  font-size: 1.15rem;
+.cl-hero-inner > p:not(.cl-hero-brand-sub):not(.cl-hero-tagline) {
+  font-size: 1.08rem;
   color: var(--text-on-dark-muted);
-  max-width: 56ch;
-  margin: 0 auto 2.25rem;
+  max-width: 42ch;
+  margin: 0 auto 2rem;
+  animation: brand-rise 1s 0.24s ease both;
 }
 
 .cl-hero-actions {
@@ -328,6 +370,18 @@ a {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+  animation: brand-rise 1s 0.3s ease both;
+}
+
+@keyframes brand-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .btn {
@@ -590,8 +644,19 @@ a {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.collection-grid--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .collection-grid--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
-  .collection-grid--three {
+  .collection-grid--three,
+  .collection-grid--four {
     grid-template-columns: 1fr;
   }
 }
@@ -685,7 +750,47 @@ a {
 }
 
 .feature-text .section-eyebrow {
+  margin-bottom: 0.5rem;
   text-align: left;
+}
+
+.craft-tool-mark {
+  width: min(160px, 45%);
+  height: auto;
+  margin: 0.35rem 0 1rem;
+  opacity: 0.92;
+}
+
+.brand-stamp-samples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.brand-stamp-samples figure {
+  margin: 0;
+  width: 120px;
+  text-align: center;
+}
+
+.brand-stamp-samples img {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1px solid rgba(90, 54, 32, 0.14);
+  border-radius: var(--radius);
+  padding: 0.4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-stamp-samples figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .feature-text h2 {
@@ -1074,11 +1179,27 @@ a {
 }
 
 .cl-footer-emblem {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   margin-bottom: 0.75rem;
-  opacity: 0.9;
+  opacity: 0.95;
+}
+
+.cl-footer-brand-links {
+  margin: 0.85rem 0 0;
+}
+
+.cl-footer-brand-links a {
+  color: var(--brass);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.cl-footer-brand-links a:hover {
+  color: var(--tan-100);
 }
 
 .cl-footer-brand .cl-brand-name {
@@ -1142,8 +1263,15 @@ a {
   .cl-header,
   .cl-nav,
   .cl-brand-emblem,
-  .cl-brand-name {
+  .cl-brand-name,
+  .cl-hero-seal,
+  .cl-hero-brand,
+  .cl-hero-brand-sub,
+  .cl-hero-tagline,
+  .cl-hero-inner > p,
+  .cl-hero-actions {
     transition: none;
+    animation: none;
   }
 }
 
