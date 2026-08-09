@@ -1,16 +1,18 @@
 # Corbett & Co. — PLA leather stamp STLs
 
-Raised-relief stamps from **Seal A** and **Head Knife O**.
-All files are **mirrored** so the imprint on leather reads correctly.
+Generated with **[STLBuilder](https://github.com/matthew-corbett/STLBuilder)** (contour → CadQuery extrusion), after crisping the brand PNGs.
+Not voxel/pixel extrusion — curves are polygonal contours from OpenCV.
 
-## Print these
+All files are **mirrored** so leather imprints read correctly.
 
-| File pattern | Mark |
-|--------------|------|
-| `corbett-seal-*-raised-mirror.stl` | Circular seal |
-| `corbett-headknife-*-raised-mirror.stl` | Head knife |
+## Files
 
-## Sizes (longest axis)
+| Pattern | Mark |
+|---------|------|
+| `stl/corbett-seal-*-raised-mirror.stl` | Circular seal |
+| `stl/corbett-headknife-*-raised-mirror.stl` | Head knife |
+
+## Sizes (width)
 
 | Label | Size |
 |-------|------|
@@ -20,14 +22,14 @@ All files are **mirrored** so the imprint on leather reads correctly.
 | `1p5in` | 1.50" (~38 mm) |
 | `2in` | 2.00" (~51 mm) |
 
-## Suggested print settings
+## Print
 
-- PLA · layer height 0.12–0.16 mm · 3+ walls · 20–40% infill
-- Print **flat, relief up** · no supports
-- Base **2.4 mm** · relief **1.8 mm**
+- PLA · 0.12–0.16 mm layers · relief up · no supports
+- Base 3 mm · imprint depth 2 mm · margin 2 mm
 
-Regenerate:
+## Regenerate
 
 ```bash
+pip install -r /path/to/STLBuilder/requirements.txt
 python3 scripts/make_stamp_stls.py
 ```
