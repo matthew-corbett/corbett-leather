@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Draft / internal brand tooling — not for search
+Disallow: /design-options.html
+Disallow: /assets/logos/
+Disallow: /assets/stamps/
+Disallow: /README.md
+
+Sitemap: https://corbettleather.com/sitemap.xml
