@@ -20,26 +20,43 @@ SPECS = {
     "binder-open": {
         "out": "corbett-leather-binder-open",
         "max": 1600,
-        "crop": 0.88,  # tighten around binder; drop excess wood
+        "crop": 0.88,
         "contrast": 1.08,
         "color": 1.05,
-        "role": "Bags gallery — interior / function",
+        "role": "Lily Binder gallery — open 6-ring interior",
     },
-    "lily-clutch-held": {
-        "out": "corbett-leather-lily-clutch-held",
+    "lily-binder-held": {
+        "out": "corbett-leather-lily-binder-held",
         "max": 1400,
-        "crop": 0.82,  # crop hand toward right edge when possible
+        "crop": 0.82,
         "contrast": 1.1,
         "color": 1.06,
-        "role": "Bags gallery — scale / in-hand (optional; prefer flat hero)",
+        "role": "Lily Binder gallery — tooling detail",
     },
-    "lily-clutch-flat": {
-        "out": "corbett-leather-lily-clutch-flat",
+    "lily-binder-flat": {
+        "out": "corbett-leather-lily-binder-flat",
         "max": 1600,
-        "crop": 0.78,  # subject ~65–70% of frame
+        "crop": 0.78,
         "contrast": 1.1,
         "color": 1.08,
-        "role": "Bags feature hero + collection card candidate",
+        "role": "Lily Binder feature hero + collection card",
+    },
+    # Legacy incoming names (pre-rename)
+    "lily-clutch-held": {
+        "out": "corbett-leather-lily-binder-held",
+        "max": 1400,
+        "crop": 0.82,
+        "contrast": 1.1,
+        "color": 1.06,
+        "role": "Lily Binder gallery — tooling detail",
+    },
+    "lily-clutch-flat": {
+        "out": "corbett-leather-lily-binder-flat",
+        "max": 1600,
+        "crop": 0.78,
+        "contrast": 1.1,
+        "color": 1.08,
+        "role": "Lily Binder feature hero + collection card",
     },
     "envelope-wallet-closed": {
         "out": "corbett-leather-envelope-wallet-closed",
