@@ -90,6 +90,22 @@ SPECS = {
         "color": 1.04,
         "role": "Wallets gallery — construction / interior (secondary)",
     },
+    "clutch-wallet-closed": {
+        "out": "corbett-leather-clutch-wallet-closed",
+        "max": 1400,
+        "crop": 0.96,
+        "contrast": 1.08,
+        "color": 1.04,
+        "role": "Work gallery — clutch wallet exterior / dual-color stitch",
+    },
+    "clutch-wallet-open": {
+        "out": "corbett-leather-clutch-wallet-open",
+        "max": 1400,
+        "crop": 0.94,
+        "contrast": 1.06,
+        "color": 1.05,
+        "role": "Work gallery — clutch wallet interior",
+    },
 }
 
 
@@ -162,7 +178,7 @@ def main() -> None:
         print("\nNo images processed. Rename files per assets/incoming/NAMES.txt and re-run.")
         return
 
-    print(f"\nWrote {len(written)} files. Next: wire Bags + The Envelope wallet on the site.")
+    print(f"\nWrote {len(written)} files. Next: add new shots to the work gallery.")
 
 
 if __name__ == "__main__":
