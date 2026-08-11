@@ -1,0 +1,16 @@
+Drop the 7 originals here, then rename to these stems (any of .jpg/.jpeg/.png/.heic):
+
+  binder-open.jpg              # Lily Binder open — 6-ring interior, purple stitch, embossed mark
+  lily-binder-held.jpg         # Lily Binder tooling detail (held / close-up)
+  lily-binder-flat.jpg         # Lily Binder closed — floral cover on dark wood (hero)
+  envelope-wallet-closed.jpg   # black envelope wallet, embossed logo, flat lay
+  envelope-wallet-closed-alt.jpg  # black envelope wallet, tighter vertical crop
+  envelope-wallet-open-card.jpg   # open black/tan with Corbett brand card in pocket
+  envelope-wallet-open.jpg     # open black/tan, empty pocket / flesh side showing
+
+Legacy incoming names still accepted by the processor:
+  lily-clutch-flat.jpg → same as lily-binder-flat
+  lily-clutch-held.jpg → same as lily-binder-held
+
+Then run:
+  python3 scripts/process-incoming-product-photos.py

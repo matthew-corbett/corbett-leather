@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Oswald:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    />
     <link rel="canonical" href="https://corbettleather.com/" />
     <link rel="icon" href="https://corbettleather.com/favicon.svg?v=2" type="image/svg+xml" />
     <link rel="icon" href="https://corbettleather.com/favicon.ico?v=2" sizes="any" />
@@ -12,16 +16,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://corbettleather.com/favicon-16x16.png?v=2" />
     <link rel="apple-touch-icon" sizes="180x180" href="https://corbettleather.com/apple-touch-icon.png?v=2" />
     <link rel="shortcut icon" href="https://corbettleather.com/favicon.ico?v=2" />
-    <link rel="stylesheet" href="assets/corbett-leather.css?v=18" />
+    <link rel="stylesheet" href="assets/corbett-leather.css?v=22" />
     <title>Corbett &amp; Co. Leather Works — Veteran-Owned Leather Goods</title>
     <meta
       name="description"
       content="Veteran-owned, American-made leather goods. Handmade belts, wallets, and bags built to order from full-grain leather."
     />
-    <meta property="og:title" content="Corbett & Company Leather Works" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Corbett &amp; Co. Leather Works — Veteran-Owned Leather Goods" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://corbettleather.com/" />
-    <meta property="og:site_name" content="Corbett & Company Leather Works" />
+    <meta property="og:site_name" content="Corbett &amp; Co. Leather Works" />
+    <meta property="og:locale" content="en_US" />
     <meta
       property="og:description"
       content="Veteran-owned, American-made belts, wallets, and bags handcrafted from full-grain leather."
@@ -32,8 +38,12 @@
     />
     <meta property="og:image:width" content="1920" />
     <meta property="og:image:height" content="1080" />
+    <meta
+      property="og:image:alt"
+      content="Corbett &amp; Co. Blue Line passport wallet and handmade leather goods"
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Corbett & Company Leather Works" />
+    <meta name="twitter:title" content="Corbett &amp; Co. Leather Works — Veteran-Owned Leather Goods" />
     <meta
       name="twitter:description"
       content="Veteran-owned, American-made belts, wallets, and bags handcrafted from full-grain leather."
@@ -42,13 +52,164 @@
       name="twitter:image"
       content="https://corbettleather.com/assets/corbett-leather-hero-blueline.jpg"
     />
+    <meta
+      name="twitter:image:alt"
+      content="Corbett &amp; Co. Blue Line passport wallet and handmade leather goods"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://corbettleather.com/#organization",
+            "name": "Corbett & Co. Leather Works",
+            "alternateName": "Corbett & Company Leather Works",
+            "url": "https://corbettleather.com/",
+            "logo": "https://corbettleather.com/assets/logos/corbett-mark-seal-on-dark.png",
+            "email": "corbettleather@gmail.com",
+            "description": "Veteran-owned, American-made leather goods. Handmade belts, wallets, bags, and custom PLA leather stamps."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://corbettleather.com/#website",
+            "url": "https://corbettleather.com/",
+            "name": "Corbett & Co. Leather Works",
+            "publisher": { "@id": "https://corbettleather.com/#organization" }
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://corbettleather.com/#collections",
+            "name": "Corbett & Co. leather goods collections",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "Product",
+                  "name": "The Heritage Belt",
+                  "description": "Hand-tooled basketweave full-grain leather belt with custom sizing and buckle options.",
+                  "image": "https://corbettleather.com/assets/corbett-leather-heritage-belt.jpg",
+                  "brand": { "@id": "https://corbettleather.com/#organization" },
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/PreOrder",
+                    "priceCurrency": "USD",
+                    "url": "https://corbettleather.com/#belts"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "Product",
+                  "name": "The Patriot Wallet",
+                  "description": "Full-grain leather wallet with embossed American flag detailing.",
+                  "image": "https://corbettleather.com/assets/corbett-leather-wallet-flag-held.jpg",
+                  "brand": { "@id": "https://corbettleather.com/#organization" },
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/PreOrder",
+                    "priceCurrency": "USD",
+                    "url": "https://corbettleather.com/#wallets"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "Product",
+                  "name": "The Sentinel",
+                  "description": "Badge-ready leather wallet with shield cutout and contrast stitching.",
+                  "image": "https://corbettleather.com/assets/corbett-leather-wallet-sentinel-badge.jpg",
+                  "brand": { "@id": "https://corbettleather.com/#organization" },
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/PreOrder",
+                    "priceCurrency": "USD",
+                    "url": "https://corbettleather.com/#sentinel"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "Product",
+                  "name": "The Blue Line Passport",
+                  "description": "Full-grain passport wallet with embossed flag and blue-line detailing.",
+                  "image": "https://corbettleather.com/assets/corbett-leather-blueline-passport-hero.jpg",
+                  "brand": { "@id": "https://corbettleather.com/#organization" },
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/PreOrder",
+                    "priceCurrency": "USD",
+                    "url": "https://corbettleather.com/#blueline"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "item": {
+                  "@type": "Product",
+                  "name": "The Envelope",
+                  "description": "Slim black-and-tan leather snap wallet with embossed Corbett & Co. mark and white contrast stitching.",
+                  "image": "https://corbettleather.com/assets/corbett-leather-envelope-wallet-closed.jpg",
+                  "brand": { "@id": "https://corbettleather.com/#organization" },
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/PreOrder",
+                    "priceCurrency": "USD",
+                    "url": "https://corbettleather.com/#envelope"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "item": {
+                  "@type": "Product",
+                  "name": "The Lily Binder",
+                  "description": "Hand-tooled floral 6-ring leather notebook cover with lily carving, purple contrast stitching, and snap closure.",
+                  "image": "https://corbettleather.com/assets/corbett-leather-lily-binder-flat.jpg",
+                  "brand": { "@id": "https://corbettleather.com/#organization" },
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/PreOrder",
+                    "priceCurrency": "USD",
+                    "url": "https://corbettleather.com/#lily-binder"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 7,
+                "item": {
+                  "@type": "Product",
+                  "name": "Custom PLA Leather Stamps",
+                  "description": "Custom PLA 3D-printed leather stamps from your text or artwork.",
+                  "image": "https://corbettleather.com/assets/corbett-leather-stamp-imprint.jpg",
+                  "brand": { "@id": "https://corbettleather.com/#organization" },
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/PreOrder",
+                    "priceCurrency": "USD",
+                    "url": "https://corbettleather.com/#stamps"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <div class="announce-bar">
-      Custom orders by inquiry ·
-      <a href="design-options.html">See brand mark options</a>
-    </div>
+    <div class="announce-bar">Custom orders by inquiry · We'll confirm options &amp; pricing by email</div>
 
     <header class="cl-header" id="siteHeader">
       <nav class="cl-nav" aria-label="Main navigation">
@@ -70,6 +231,7 @@
           <a href="#collections">Collections</a>
           <a href="#belts">Belts</a>
           <a href="#wallets">Wallets</a>
+          <a href="#bags">Bags</a>
           <a href="#craft">Our Craft</a>
           <a href="#stamps">Stamps</a>
           <a href="#story">Our Story</a>
@@ -83,6 +245,7 @@
         <a href="#collections">Collections</a>
         <a href="#belts">Belts</a>
         <a href="#wallets">Wallets</a>
+        <a href="#bags">Bags</a>
         <a href="#craft">Our Craft</a>
         <a href="#stamps">Stamps</a>
         <a href="#story">Our Story</a>
@@ -95,14 +258,14 @@
       <section class="cl-hero" id="main-content">
         <img
           class="cl-hero-bg"
-          src="assets/corbett-leather-hero-blueline.jpg"
+          src="assets/corbett-leather-hero-blueline.webp"
           alt=""
           width="1920"
           height="1080"
           fetchpriority="high"
           decoding="async"
           aria-hidden="true"
-          onerror="this.onerror=null;this.src='assets/corbett-leather-wallet-workshop.jpg';"
+          onerror="this.onerror=null;this.src='assets/corbett-leather-hero-blueline.jpg';"
         />
         <div class="cl-hero-overlay" aria-hidden="true"></div>
         <div class="cl-hero-inner">
@@ -114,9 +277,11 @@
             height="96"
             aria-hidden="true"
           />
-          <h1 class="cl-hero-brand">Corbett &amp; Co.</h1>
-          <p class="cl-hero-brand-sub">Leather Works</p>
-          <p class="cl-hero-tagline">Veteran-owned. American-made. Built by hand.</p>
+          <h1 class="cl-hero-brand">
+            Corbett &amp; Co.
+            <span class="cl-hero-brand-sub">Leather Works</span>
+          </h1>
+          <p class="cl-hero-tagline">Veteran-owned leather goods. American-made. Built by hand.</p>
           <p>
             Full-grain belts, wallets, and bags — cut, stamped, and finished at the bench.
           </p>
@@ -166,7 +331,7 @@
         <div class="container">
           <div class="section-head">
             <p class="section-eyebrow">Our Collections</p>
-            <h2 class="section-title">Built to Last a Lifetime</h2>
+            <h2 class="section-title">Handmade Leather Belts, Wallets &amp; Bags</h2>
             <p class="section-subtitle">
               Belts, wallets, and bags crafted from premium full-grain leather — plus custom
               leather stamps from your text or artwork. Every order is made to your
@@ -177,7 +342,7 @@
             <a class="collection-card" href="#belts" data-inquiry-category="The Heritage Belt">
               <span class="collection-art art-belts">
                 <img
-                  src="assets/corbett-leather-heritage-belt.jpg"
+                  src="assets/corbett-leather-heritage-belt.webp"
                   alt=""
                   aria-hidden="true"
                   width="900"
@@ -196,7 +361,7 @@
             <a class="collection-card" href="#wallets" data-inquiry-category="Wallets">
               <span class="collection-art art-wallets">
                 <img
-                  src="assets/corbett-leather-wallet-flag-held.jpg"
+                  src="assets/corbett-leather-wallet-flag-held.webp"
                   alt=""
                   aria-hidden="true"
                   width="900"
@@ -208,45 +373,46 @@
               </span>
               <div class="collection-body">
                 <h3>Wallets</h3>
-                <p>The Patriot Wallet, The Sentinel, and The Blue Line Passport.</p>
+                <p>The Patriot, The Sentinel, The Blue Line Passport, and The Envelope.</p>
                 <span class="collection-cta">View Wallets →</span>
               </div>
             </a>
-            <a class="collection-card" href="#inquire" data-inquiry-category="Bags">
+            <a class="collection-card" href="#bags" data-inquiry-category="The Lily Binder">
               <span class="collection-art art-bags">
                 <img
-                  src="assets/corbett-leather-wallet-workshop-tools.jpg"
+                  src="assets/corbett-leather-lily-binder-flat.webp"
                   alt=""
                   aria-hidden="true"
-                  width="1600"
-                  height="2133"
+                  width="1200"
+                  height="1600"
                   loading="lazy"
                   decoding="async"
+                  onerror="this.onerror=null;this.src='assets/corbett-leather-lily-binder-flat.jpg';"
                 />
               </span>
               <div class="collection-body">
                 <h3>Bags</h3>
-                <p>Custom duffles, totes, and weekenders — built to order from the bench.</p>
-                <span class="collection-cta">Request Quote →</span>
+                <p>The Lily Binder — hand-tooled 6-ring notebook cover — and custom bags.</p>
+                <span class="collection-cta">View Bags →</span>
               </div>
             </a>
-            <a class="collection-card" href="#inquire" data-inquiry-category="Leather Stamps">
+            <a class="collection-card" href="#stamps" data-inquiry-category="Leather Stamps">
               <span class="collection-art art-stamps">
                 <img
-                  src="assets/corbett-leather-stamp-imprint.jpg"
+                  src="assets/corbett-leather-stamp-imprint.webp"
                   alt=""
                   aria-hidden="true"
                   width="900"
                   height="720"
                   loading="lazy"
                   decoding="async"
-                  onerror="this.onerror=null;this.src='assets/pla-stamp-tile.png';"
+                  onerror="this.onerror=null;this.src='assets/corbett-leather-stamp-imprint.jpg';"
                 />
               </span>
               <div class="collection-body">
                 <h3>Leather Stamps</h3>
                 <p>Custom PLA 3D printed imprints from text or images.</p>
-                <span class="collection-cta">Request Stamp Quote →</span>
+                <span class="collection-cta">View Stamps →</span>
               </div>
             </a>
           </div>
@@ -260,7 +426,7 @@
           <div class="feature">
             <div class="feature-art feature-art--product">
               <img
-                src="assets/corbett-leather-wallet-workshop.jpg"
+                src="assets/corbett-leather-wallet-workshop.webp"
                 alt="Handmade Corbett &amp; Co. leather wallet on the workbench with tools and thread"
                 width="1600"
                 height="2133"
@@ -280,7 +446,7 @@
                 decoding="async"
                 aria-hidden="true"
               />
-              <h2>Belts, Wallets &amp; Bags — Made by Hand</h2>
+              <h2>Handcrafted Belts, Wallets &amp; Bags</h2>
               <p>
                 Every order starts with a conversation. Pick your leather, hardware, and dimensions —
                 we'll confirm the details and price by email before a single stitch goes in.
@@ -303,7 +469,7 @@
           <div class="feature">
             <div class="feature-art feature-art--photo belt-feature-art">
               <img
-                src="assets/corbett-leather-heritage-belt.jpg"
+                src="assets/corbett-leather-heritage-belt.webp"
                 alt="The Heritage Belt — basketweave tooled leather belt with white contrast stitching and black buckle"
                 width="1100"
                 height="620"
@@ -332,7 +498,7 @@
           <div class="wallet-gallery belt-gallery" aria-label="Belt gallery">
             <figure class="wallet-gallery-item">
               <img
-                src="assets/corbett-leather-heritage-belt.jpg"
+                src="assets/corbett-leather-heritage-belt.webp"
                 alt="The Heritage Belt coiled on the workbench with leatherworking tools"
                 width="900"
                 height="1200"
@@ -344,7 +510,7 @@
             </figure>
             <figure class="wallet-gallery-item">
               <img
-                src="assets/corbett-leather-heritage-belt-detail.jpg"
+                src="assets/corbett-leather-heritage-belt-detail.webp"
                 alt="The Heritage Belt buckle detail with brand stamp and basketweave tooling"
                 width="900"
                 height="1200"
@@ -356,7 +522,7 @@
             </figure>
             <figure class="wallet-gallery-item">
               <img
-                src="assets/corbett-leather-blueline-passport-held.jpg"
+                src="assets/corbett-leather-blueline-passport-held.webp"
                 alt="The Blue Line Passport held above tooled Heritage Belts on the workbench"
                 width="900"
                 height="1200"
@@ -393,7 +559,7 @@
             </div>
             <div class="feature-art feature-art--photo wallet-workshop-art">
               <img
-                src="assets/corbett-leather-wallet-flag-bench.jpg"
+                src="assets/corbett-leather-wallet-flag-bench.webp"
                 alt="The Patriot Wallet — black leather bifold with embossed American flag and Corbett &amp; Co. mark"
                 width="1100"
                 height="620"
@@ -422,7 +588,7 @@
             </div>
             <div class="feature-art feature-art--photo wallet-workshop-art">
               <img
-                src="assets/corbett-leather-wallet-sentinel-badge.jpg"
+                src="assets/corbett-leather-wallet-sentinel-badge.webp"
                 alt="The Sentinel — black leather badge holder with an actual badge seated in the shield cutout"
                 width="1100"
                 height="620"
@@ -436,7 +602,7 @@
           <div class="feature wallet-blueline" id="blueline">
             <div class="feature-art feature-art--photo wallet-workshop-art">
               <img
-                src="assets/corbett-leather-blueline-passport-held.jpg"
+                src="assets/corbett-leather-blueline-passport-held.webp"
                 alt="The Blue Line Passport — black leather passport wallet with embossed flag and thin blue line stripe"
                 width="1100"
                 height="620"
@@ -462,10 +628,76 @@
             </div>
           </div>
 
+
+          <div class="feature feature--reverse wallet-envelope" id="envelope">
+            <div class="feature-text">
+              <p class="section-eyebrow">Everyday Carry</p>
+              <h2>The Envelope</h2>
+              <p class="prose-serif">
+                A slim black-and-tan snap wallet with white contrast stitching and the Corbett &amp; Co.
+                mark embossed on the flap — built for cards and daily pocket carry.
+              </p>
+              <ul class="feature-list">
+                <li>Envelope flap with embossed Corbett &amp; Co. mark</li>
+                <li>Black exterior, natural tan interior</li>
+                <li>White contrast stitching and metal snap closure</li>
+                <li>Hand-stitched full-grain leather, made to order</li>
+              </ul>
+              <a href="#inquire" class="btn btn-primary" data-inquiry-category="The Envelope">Request The Envelope</a>
+            </div>
+            <div class="feature-art feature-art--photo wallet-workshop-art">
+              <img
+                src="assets/corbett-leather-envelope-wallet-closed-alt.webp"
+                alt="The Envelope — black leather snap wallet with embossed Corbett &amp; Co. mark and white stitching"
+                width="1253"
+                height="1400"
+                loading="lazy"
+                decoding="async"
+                onerror="this.onerror=null;this.src='assets/corbett-leather-envelope-wallet-closed-alt.jpg';"
+              />
+            </div>
+          </div>
+
           <div class="wallet-gallery" aria-label="Wallet gallery">
             <figure class="wallet-gallery-item">
               <img
-                src="assets/corbett-leather-wallet-flag-held.jpg"
+                src="assets/corbett-leather-envelope-wallet-closed.webp"
+                alt="The Envelope closed — embossed Corbett &amp; Co. mark and white contrast stitching"
+                width="1246"
+                height="1400"
+                loading="lazy"
+                decoding="async"
+                onerror="this.onerror=null;this.src='assets/corbett-leather-envelope-wallet-closed.jpg';"
+              />
+              <figcaption>The Envelope</figcaption>
+            </figure>
+            <figure class="wallet-gallery-item">
+              <img
+                src="assets/corbett-leather-envelope-wallet-open-card.webp"
+                alt="The Envelope open with Corbett &amp; Co. brand card in the front pocket"
+                width="1049"
+                height="1400"
+                loading="lazy"
+                decoding="async"
+                onerror="this.onerror=null;this.src='assets/corbett-leather-envelope-wallet-open-card.jpg';"
+              />
+              <figcaption>The Envelope — with brand card</figcaption>
+            </figure>
+            <figure class="wallet-gallery-item">
+              <img
+                src="assets/corbett-leather-envelope-wallet-open.webp"
+                alt="The Envelope open showing tan flap, black pocket, and white stitching"
+                width="1049"
+                height="1400"
+                loading="lazy"
+                decoding="async"
+                onerror="this.onerror=null;this.src='assets/corbett-leather-envelope-wallet-open.jpg';"
+              />
+              <figcaption>The Envelope — interior</figcaption>
+            </figure>
+            <figure class="wallet-gallery-item">
+              <img
+                src="assets/corbett-leather-wallet-flag-held.webp"
                 alt="The Patriot Wallet held in hand — embossed American flag and blue stitching"
                 width="900"
                 height="1200"
@@ -477,7 +709,7 @@
             </figure>
             <figure class="wallet-gallery-item">
               <img
-                src="assets/corbett-leather-wallet-sentinel-badge.jpg"
+                src="assets/corbett-leather-wallet-sentinel-badge.webp"
                 alt="The Sentinel badge holder with an actual badge seated in the shield cutout"
                 width="900"
                 height="1200"
@@ -489,7 +721,7 @@
             </figure>
             <figure class="wallet-gallery-item">
               <img
-                src="assets/corbett-leather-blueline-passport-hero.jpg"
+                src="assets/corbett-leather-blueline-passport-hero.webp"
                 alt="The Blue Line Passport standing on the workbench with embossed flag and blue stripe"
                 width="900"
                 height="1200"
@@ -501,7 +733,7 @@
             </figure>
             <figure class="wallet-gallery-item">
               <img
-                src="assets/corbett-leather-blueline-passport-open.jpg"
+                src="assets/corbett-leather-blueline-passport-open.webp"
                 alt="The Blue Line Passport open with U.S. passport, card slots, and Corbett &amp; Co. mark"
                 width="900"
                 height="1200"
@@ -513,7 +745,7 @@
             </figure>
             <figure class="wallet-gallery-item">
               <img
-                src="assets/corbett-leather-blueline-passport-held.jpg"
+                src="assets/corbett-leather-blueline-passport-held.webp"
                 alt="The Blue Line Passport held above tooled Heritage Belts"
                 width="900"
                 height="1200"
@@ -525,7 +757,7 @@
             </figure>
             <figure class="wallet-gallery-item">
               <img
-                src="assets/corbett-leather-wallet-pair.jpg"
+                src="assets/corbett-leather-wallet-pair.webp"
                 alt="The Sentinel and The Patriot Wallet side by side with red and blue contrast stitching"
                 width="900"
                 height="1200"
@@ -541,31 +773,146 @@
 
       <div class="section-divider" aria-hidden="true"></div>
 
-      <section class="process-strip" aria-label="How ordering works">
+      <section class="section section-alt" id="bags">
+        <div class="container">
+          <div class="feature" id="lily-binder">
+            <div class="feature-art feature-art--photo">
+              <img
+                src="assets/corbett-leather-lily-binder-flat.webp"
+                alt="The Lily Binder — hand-tooled floral leather 6-ring notebook cover with purple contrast stitching"
+                width="1200"
+                height="1600"
+                loading="lazy"
+                decoding="async"
+                onerror="this.onerror=null;this.src='assets/corbett-leather-lily-binder-flat.jpg';"
+              />
+            </div>
+            <div class="feature-text">
+              <p class="section-eyebrow">Hand-Tooled Notebook Cover</p>
+              <h2>The Lily Binder</h2>
+              <p class="prose-serif">
+                A 6-ring notebook cover carved with a six-lily floral panel on natural veg-tan leather,
+                finished with purple contrast stitching and a snap strap — planner-ready and built
+                one cover at a time.
+              </p>
+              <ul class="feature-list">
+                <li>Hand-tooled lily and vine exterior panel</li>
+                <li>Black metal 6-ring binder mechanism</li>
+                <li>Interior pocket with embossed Corbett &amp; Co. mark</li>
+                <li>Purple contrast stitching and snap closure</li>
+              </ul>
+              <a href="#inquire" class="btn btn-primary" data-inquiry-category="The Lily Binder">Request The Lily Binder</a>
+            </div>
+          </div>
+
+          <div class="feature feature--reverse">
+            <div class="feature-text">
+              <p class="section-eyebrow">Inside the Cover</p>
+              <h2>Rings, Pocket &amp; Maker&rsquo;s Mark</h2>
+              <p class="prose-serif">
+                Open the cover and you&rsquo;ll find a full 6-ring mechanism, a front pocket for loose
+                sheets or cards, and the Corbett &amp; Co. mark stamped into the leather — ready for
+                inserts, notes, and daily planning.
+              </p>
+              <ul class="feature-list">
+                <li>Fits standard 6-ring notebook inserts</li>
+                <li>Custom ring size and cover dimensions on request</li>
+                <li>Natural full-grain leather that darkens with age</li>
+              </ul>
+              <a href="#inquire" class="btn btn-primary" data-inquiry-category="The Lily Binder">Request The Lily Binder</a>
+            </div>
+            <div class="feature-art feature-art--photo">
+              <img
+                src="assets/corbett-leather-binder-open.webp"
+                alt="The Lily Binder open — natural leather 6-ring notebook cover with purple stitching and embossed Corbett &amp; Co. mark"
+                width="1173"
+                height="1600"
+                loading="lazy"
+                decoding="async"
+                onerror="this.onerror=null;this.src='assets/corbett-leather-binder-open.jpg';"
+              />
+            </div>
+          </div>
+
+          <div class="wallet-gallery bag-gallery" aria-label="Lily Binder gallery">
+            <figure class="wallet-gallery-item">
+              <img
+                src="assets/corbett-leather-lily-binder-flat.webp"
+                alt="The Lily Binder closed — floral tooling and purple stitching on dark wood"
+                width="1200"
+                height="1600"
+                loading="lazy"
+                decoding="async"
+                onerror="this.onerror=null;this.src='assets/corbett-leather-lily-binder-flat.jpg';"
+              />
+              <figcaption>Closed cover</figcaption>
+            </figure>
+            <figure class="wallet-gallery-item">
+              <img
+                src="assets/corbett-leather-lily-binder-held.webp"
+                alt="Close detail of the Lily Binder hand-tooled floral panel"
+                width="886"
+                height="1400"
+                loading="lazy"
+                decoding="async"
+                onerror="this.onerror=null;this.src='assets/corbett-leather-lily-binder-held.jpg';"
+              />
+              <figcaption>Tooling detail</figcaption>
+            </figure>
+            <figure class="wallet-gallery-item">
+              <img
+                src="assets/corbett-leather-binder-open.webp"
+                alt="The Lily Binder interior with rings, purple stitch, and embossed logo"
+                width="1173"
+                height="1600"
+                loading="lazy"
+                decoding="async"
+                onerror="this.onerror=null;this.src='assets/corbett-leather-binder-open.jpg';"
+              />
+              <figcaption>Open — 6-ring interior</figcaption>
+            </figure>
+          </div>
+
+          <div class="bags-custom-note">
+            <p class="prose-serif">
+              Need a duffle, tote, or weekender? Tell us the size, pockets, and hardware — we build
+              custom bags to order from the same bench.
+            </p>
+            <a href="#inquire" class="btn btn-ghost" data-inquiry-category="Bags">Request a Custom Bag</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <section class="process-strip" aria-labelledby="process-heading">
         <div class="process-strip-bg" aria-hidden="true"></div>
-        <div class="process-strip-inner">
-          <div class="process-step">
-            <span class="process-num">1</span>
-            <h3>Inquire</h3>
-            <p>Tell us what you want — leather goods (belts, wallets, bags) or custom stamp imprints.</p>
-          </div>
-          <div class="process-arrow" aria-hidden="true">→</div>
-          <div class="process-step">
-            <span class="process-num">2</span>
-            <h3>Confirm</h3>
-            <p>We reply with specs, timeline, and pricing for your approval.</p>
-          </div>
-          <div class="process-arrow" aria-hidden="true">→</div>
-          <div class="process-step">
-            <span class="process-num">3</span>
-            <h3>Build</h3>
-            <p>Your piece is cut, stitched, and finished by hand in our shop.</p>
-          </div>
-          <div class="process-arrow" aria-hidden="true">→</div>
-          <div class="process-step">
-            <span class="process-num">4</span>
-            <h3>Ship</h3>
-            <p>Finished goods shipped to your door, ready for a lifetime of use.</p>
+        <div class="process-strip-wrap">
+          <h2 id="process-heading" class="process-strip-title">How Custom Orders Work</h2>
+          <div class="process-strip-inner">
+            <div class="process-step">
+              <span class="process-num">1</span>
+              <h3>Inquire</h3>
+              <p>Tell us what you want — leather goods (belts, wallets, bags) or custom stamp imprints.</p>
+            </div>
+            <div class="process-arrow" aria-hidden="true">→</div>
+            <div class="process-step">
+              <span class="process-num">2</span>
+              <h3>Confirm</h3>
+              <p>We reply with specs, timeline, and pricing for your approval.</p>
+            </div>
+            <div class="process-arrow" aria-hidden="true">→</div>
+            <div class="process-step">
+              <span class="process-num">3</span>
+              <h3>Build</h3>
+              <p>Your piece is cut, stitched, and finished by hand in our shop.</p>
+            </div>
+            <div class="process-arrow" aria-hidden="true">→</div>
+            <div class="process-step">
+              <span class="process-num">4</span>
+              <h3>Ship</h3>
+              <p>Finished goods shipped to your door, ready for a lifetime of use.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -577,7 +924,7 @@
           <div class="feature">
             <div class="feature-art feature-art--photo stamp-feature-art">
               <img
-                src="assets/corbett-leather-stamp-imprint.jpg"
+                src="assets/corbett-leather-stamp-imprint.webp"
                 alt="Embossed Corbett &amp; Co. maker's mark stamped into full-grain leather"
                 width="1100"
                 height="620"
@@ -588,7 +935,7 @@
             </div>
             <div class="feature-text">
               <p class="section-eyebrow">Custom PLA 3D Stamps</p>
-              <h2>Custom Imprints, Built from Your Design</h2>
+              <h2>Custom Leather Stamps from Your Design</h2>
               <p class="prose-serif">
                 We create custom PLA leather stamps from your text or images—then help you tune imprint
                 depth and size so it looks right on your leather.
@@ -624,22 +971,10 @@
                 <li>Built to replace easily as designs evolve</li>
               </ul>
               <div class="stamp-stl-downloads">
-                <p class="stamp-stl-label">Print-ready STLs (mirrored for leather)</p>
+                <p class="stamp-stl-label">Print-ready stamp files</p>
                 <p class="stamp-stl-sizes">
-                  Seal:
-                  <a href="assets/stamps/stl/corbett-seal-0p75in-raised-mirror.stl">0.75″</a>
-                  <a href="assets/stamps/stl/corbett-seal-1in-raised-mirror.stl">1″</a>
-                  <a href="assets/stamps/stl/corbett-seal-1p25in-raised-mirror.stl">1.25″</a>
-                  <a href="assets/stamps/stl/corbett-seal-1p5in-raised-mirror.stl">1.5″</a>
-                  <a href="assets/stamps/stl/corbett-seal-2in-raised-mirror.stl">2″</a>
-                </p>
-                <p class="stamp-stl-sizes">
-                  Head knife:
-                  <a href="assets/stamps/stl/corbett-headknife-0p75in-raised-mirror.stl">0.75″</a>
-                  <a href="assets/stamps/stl/corbett-headknife-1in-raised-mirror.stl">1″</a>
-                  <a href="assets/stamps/stl/corbett-headknife-1p25in-raised-mirror.stl">1.25″</a>
-                  <a href="assets/stamps/stl/corbett-headknife-1p5in-raised-mirror.stl">1.5″</a>
-                  <a href="assets/stamps/stl/corbett-headknife-2in-raised-mirror.stl">2″</a>
+                  STL files are sent after we confirm your design, size, and imprint orientation.
+                  Request a quote and we&rsquo;ll deliver the right files for your leather stamp order.
                 </p>
               </div>
               <a
@@ -659,7 +994,7 @@
           <div class="feature">
             <div class="feature-text">
               <p class="section-eyebrow">Our Story</p>
-              <h2>Made by Hand, Built to Last</h2>
+              <h2>A Veteran-Owned Leather Shop</h2>
               <p class="prose-serif">
                 Corbett &amp; Company Leather Works started at a workbench, not a boardroom. As a
                 veteran-owned shop, we build the gear we wanted but couldn't find: honest, full-grain
@@ -673,7 +1008,7 @@
             </div>
             <div class="feature-art feature-art--photo">
               <img
-                src="assets/corbett-leather-wallet-flag-bench.jpg"
+                src="assets/corbett-leather-wallet-flag-bench.webp"
                 alt="The Patriot Wallet with embossed American flag and Corbett &amp; Co. maker's mark on the workbench"
                 width="1600"
                 height="1200"
@@ -736,7 +1071,7 @@
         <div class="container">
           <div class="section-head">
             <p class="section-eyebrow">From Our Customers</p>
-            <h2 class="section-title">Built Right, Built to Last</h2>
+            <h2 class="section-title">What Customers Say About Our Leather</h2>
           </div>
           <div class="testimonial-grid">
             <blockquote class="testimonial-card">
@@ -809,8 +1144,10 @@
                   <option value="The Patriot Wallet">The Patriot Wallet</option>
                   <option value="The Sentinel">The Sentinel (badge holder)</option>
                   <option value="The Blue Line Passport">The Blue Line Passport</option>
+                  <option value="The Envelope">The Envelope</option>
                   <option value="Wallets">Wallets — other / custom</option>
-                  <option value="Bags">Bags</option>
+                  <option value="The Lily Binder">The Lily Binder (6-ring notebook cover)</option>
+                  <option value="Bags">Bags — other / custom</option>
                   <option value="Leather Stamps">Leather Stamps</option>
                   <option value="Other / Not sure">Other / Not sure</option>
                 </select>
@@ -856,7 +1193,7 @@
       <section class="cta-banner">
         <div class="cta-banner-bg" aria-hidden="true"></div>
         <div class="cta-banner-inner">
-          <h2>Leather Goods Built to Last</h2>
+          <h2>Ready for Your Custom Order?</h2>
           <p>
             Ready for a custom belt, wallet, or bag? Send an inquiry and we'll work with you to nail
             down the details, confirm pricing, and get your order on the schedule.
@@ -886,9 +1223,6 @@
           <p>
             Veteran-owned, American-made belts, wallets, and bags. Built by hand, made to last.
           </p>
-          <p class="cl-footer-brand-links">
-            <a href="design-options.html">Brand mark options</a>
-          </p>
         </div>
         <div class="cl-footer-col">
           <h3>Collections</h3>
@@ -897,9 +1231,11 @@
           <a href="#wallets">The Patriot Wallet</a>
           <a href="#sentinel">The Sentinel</a>
           <a href="#blueline">The Blue Line Passport</a>
+          <a href="#envelope">The Envelope</a>
           <a href="#inquire" data-inquiry-category="Wallets">Custom Wallets</a>
-          <a href="#inquire" data-inquiry-category="Bags">Bags</a>
-          <a href="#inquire" data-inquiry-category="Leather Stamps">Leather Stamps</a>
+          <a href="#lily-binder">The Lily Binder</a>
+          <a href="#bags">Bags</a>
+          <a href="#stamps">Leather Stamps</a>
         </div>
         <div class="cl-footer-col">
           <h3>Company</h3>
