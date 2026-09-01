@@ -510,6 +510,63 @@
               </figcaption>
             </figure>
 
+            <figure class="work-item" data-category="bags">
+              <button type="button" class="work-thumb" aria-label="View larger: Leather weekender duffel">
+                <img
+                  src="assets/corbett-leather-overnight-duffel.webp"
+                  alt="Handcrafted pull-up leather weekender duffel with black straps and brass hardware"
+                  width="1600"
+                  height="985"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.onerror=null;this.src='assets/corbett-leather-overnight-duffel.jpg';"
+                />
+              </button>
+              <figcaption>
+                <span class="work-tag">Bag</span>
+                <strong>Weekender duffel</strong>
+                <span class="work-meta">Pull-up leather, contrast straps, front pocket, shoulder strap</span>
+              </figcaption>
+            </figure>
+
+            <figure class="work-item" data-category="bags">
+              <button type="button" class="work-thumb work-thumb--center" aria-label="View larger: Embossed leather tote">
+                <img
+                  src="assets/corbett-leather-overnight-tote-exterior.webp"
+                  alt="Large dark brown leather tote with snakeskin-embossed body and smooth leather pocket"
+                  width="867"
+                  height="1400"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.onerror=null;this.src='assets/corbett-leather-overnight-tote-exterior.jpg';"
+                />
+              </button>
+              <figcaption>
+                <span class="work-tag">Bag</span>
+                <strong>Embossed leather tote</strong>
+                <span class="work-meta">Textured panel, smooth base &amp; pocket, riveted handles</span>
+              </figcaption>
+            </figure>
+
+            <figure class="work-item" data-category="bags">
+              <button type="button" class="work-thumb" aria-label="View larger: Leather tote interior">
+                <img
+                  src="assets/corbett-leather-overnight-tote-interior.webp"
+                  alt="Interior of large leather tote with suede lining, slip pocket, and Corbett maker's label"
+                  width="1400"
+                  height="1306"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.onerror=null;this.src='assets/corbett-leather-overnight-tote-interior.jpg';"
+                />
+              </button>
+              <figcaption>
+                <span class="work-tag">Bag</span>
+                <strong>Tote interior</strong>
+                <span class="work-meta">Suede lining, slip pocket, maker&rsquo;s label</span>
+              </figcaption>
+            </figure>
+
             <figure class="work-item" data-category="stamps">
               <button type="button" class="work-thumb work-thumb--center" aria-label="View larger: Leather stamp imprint">
                 <img
@@ -1107,7 +1164,9 @@
           envelope: "wallets",
           sentinel: "wallets",
           blueline: "wallets",
-          "lily-binder": "bags"
+          "lily-binder": "bags",
+          "overnight-bag": "bags",
+          weekender: "bags"
         };
 
         var filterBtns = Array.prototype.slice.call(document.querySelectorAll("[data-work-filter]"));
@@ -1136,7 +1195,14 @@
           var key = (location.hash || "").replace("#", "");
           if (HASH_FILTERS[key]) {
             applyWorkFilter(HASH_FILTERS[key]);
-            if (key === "envelope" || key === "sentinel" || key === "blueline" || key === "lily-binder") {
+            if (
+              key === "envelope" ||
+              key === "sentinel" ||
+              key === "blueline" ||
+              key === "lily-binder" ||
+              key === "overnight-bag" ||
+              key === "weekender"
+            ) {
               var grid = document.getElementById("work-grid");
               if (grid) grid.scrollIntoView();
             }
