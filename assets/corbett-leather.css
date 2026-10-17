@@ -1723,3 +1723,26 @@ a {
     gap: 2rem;
   }
 }
+
+/* Holiday ordering banner (added 2026-10-16) */
+.cl-holiday {
+  background: var(--leather-800);
+  border-top: 2px solid var(--brass);
+  border-bottom: 2px solid var(--brass);
+  color: var(--text-on-dark);
+  padding: 0.9rem 1.5rem;
+  text-align: center;
+}
+.cl-holiday p {
+  margin: 0 auto;
+  max-width: 62rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+.cl-holiday a {
+  color: var(--brass);
+  font-weight: 600;
+}
+.cl-holiday a:hover {
+  color: var(--brass-hover);
+}
