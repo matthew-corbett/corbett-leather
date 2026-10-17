@@ -1746,3 +1746,15 @@ a {
 .cl-holiday a:hover {
   color: var(--brass-hover);
 }
+
+/* Etsy buy link under gallery figures (added 2026-10-17) */
+.work-etsy {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brass-text);
+}
+.work-etsy:hover {
+  color: var(--brass-hover);
+}
